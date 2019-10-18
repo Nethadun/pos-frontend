@@ -1,0 +1,40 @@
+.poshead{
+  color: white;
+  font-size: 30px;
+
+}
+#sidebar{
+  background-color: #17a2b8;
+  height: 100%;
+}
+a{
+  text-decoration: none!important;
+}
+.sidehover:hover{
+  background-color: #117a8b;
+
+}
+.sidehover{
+  text-align: justify;
+}
+#head{
+  height: 50px;
+}
+
+#tablehead{
+  background-color: #b3b7bb;
+}
+.clearbtn{
+  background-color: #721c24;
+  color: white;
+}
+.buttonProceed{
+  background-color: lightseagreen;
+  color: white;
+}
+#dash{
+  color:black;
+}
+#tablehead{
+  background-color: #b3b7bb;
+}

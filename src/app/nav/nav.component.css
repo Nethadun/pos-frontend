@@ -1,0 +1,49 @@
+.poshead{
+  color: white;
+  font-size: 30px;
+
+}
+#navfix{
+  position: fixed;
+  height: 50px;
+}
+#sidebar{
+  background-color: #69b852;
+  height: 100%;
+}
+a{
+  text-decoration: none!important;
+}
+.sidehover:hover{
+  background-color: rgba(189, 255, 79, 0.86);
+}
+.sidehover{
+  text-align: justify;
+}
+#head{
+  height: 50px;
+}
+
+#tablehead{
+  background-color: #b3b7bb;
+}
+.clearbtn{
+  background-color: #721c24;
+  color: white;
+}
+.buttonProceed{
+  background-color: lightseagreen;
+  color: white;
+}
+#dash{
+  color:black;
+}
+#tablehead{
+  background-color: #b3b7bb;
+}
+
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////*/
+
+

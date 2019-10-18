@@ -1,0 +1,71 @@
+.poshead{
+  color: white;
+  font-size: 30px;
+
+}
+#tablefix{
+  position: fixed;
+}
+#sidebar{
+  background-color: #17a2b8;
+  height: 100%;
+}
+.sidehover:hover{
+  background-color: #117a8b;
+
+}
+.sidehover{
+  text-align: justify;
+}
+.sidehover:active{
+  background-color: white;
+
+}
+.sidehover:link{
+  background-color: #0b2e13;
+}
+#head{
+  height: 50px;
+}
+#table{
+  background-color: #80bdff;
+}
+#tablehead{
+  background-color: #71ab49db;
+}
+.clearbtn{
+  background-color: #721c24;
+  color: white;
+}
+.dash{
+  color:black;
+}
+#addbtn{
+  width: 100px;
+  background-color: #005cbf;
+  color: white;
+}
+#btnupdate{
+  width: 100px;
+  background-color:#17a2b8;
+  color: white;
+}
+#btndelete{
+  width: 100px;
+  background-color:#721c24;
+  color: white;
+}
+#btnrefresh{
+  width: 100px;
+  background-color: #005cbf;
+  color: white;
+}
+a{
+  text-decoration: none!important;
+}
+a:active{
+  color: white;
+}
+#dash:active{
+  background-color: white;
+}

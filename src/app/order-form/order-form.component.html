@@ -1,0 +1,286 @@
+<form autocomplete="off" #orderForms="ngForm">
+  <div class="col-md-12">
+
+    <div style=""> <h3>ORDER FORM :</h3></div>
+    <hr>
+    <br>
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> ORDER ID</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label>date</label>
+          <input type="date" class="form-control" [(ngModel)]="ordersdetail.date" name="date">
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="form-group">
+          <label> Customer Name</label>
+          <input type="text" class="form-control" name="search" [(ngModel)]="searchTextCust" autocomplete="off" >
+        </div>
+      </div>
+
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table class="table table-hover">
+          <thead style="background-color: #71ab49db">
+          <tr id="tablehead1" >
+            <th scope="col">Customer Id</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Contact</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody *ngFor=" let cus of customerList| tableFilter:searchTextCust:'customerName'" >
+          <tr>
+            <th scope="row">{{cus.cid}}</th>
+            <th scope="row">{{cus.customerName}}</th>
+            <th scope="row">{{cus.telephone}}</th>
+            <th>
+              <button [routerLink]="['/main/orderForm', cus.cid]" class="btn social-btn btn-secondary" type="button">
+
+                Edit
+              </button>
+
+            </th>
+
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <!--customer name end-->
+    <!--cus details bigin-->
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> Customer Id</label>
+          <input type="text" class="form-control" name="cid" [(ngModel)]="customerdto.cid" >
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> Customer Telephone </label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <!--cust details end-->
+    <!--customer name bigin-->
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="form-group">
+          <label> Item Name</label>
+          <input type="text" class="form-control" name="search" [(ngModel)]="searchText" autocomplete="off" >
+        </div>
+      </div>
+
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table class="table table-hover" id="table1">
+          <thead id="table1head">
+          <tr id="tableheadq">
+            <th scope="col">Item Code</th>
+            <th scope="col">Description</th>
+            <th scope="col">Unite Price</th>
+            <th scope="col">Availabel Quantity</th>
+            <th scope="col"></th>
+
+          </tr>
+          </thead>
+          <tbody *ngFor=" let ite of itemList| tableFilter:searchText:'description'">
+          <tr>
+            <th scope="row">{{ite.code}}</th>
+            <th scope="row">{{ite.description}}</th>
+            <th scope="row">{{ite.unitePrice}}</th>
+            <th scope="row">{{ite.availableQty}}</th>
+
+            <th>
+              <button [routerLink]="['/main/orderForm', ite.code]" class="btn btn-warning" type="button">
+
+                Buy
+              </button>
+
+            </th>
+
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <!--customer name end-->
+    <!--cus details bigin-->
+
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label> Item code</label>
+          <input type="text" [(ngModel)]="itemDto.code" name="customerNamedd" class="form-control form-control"
+                 id="formGroupExdamfpleInput2" #code [(ngModel)]="ordersdetail.items.code" name="code">
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> Item Name</label>
+          <input type="text" [(ngModel)]="itemDto.description" name="customerNatmedd" class="form-control form-control"
+                 id="formGroupExdampleInput2" #description>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label> Unite Price </label>
+          <input type="text" [(ngModel)]="itemDto.unitePrice" name="customerNamde" class="form-control form-control"
+                 id="formGroupExddampleInput2" #unitePrice>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <!--cust details end-->
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> Availble qty</label>
+          <input type="text" [(ngModel)]="itemDto.availableQty" name="customeddrName" class="form-control form-control"
+                 id="formGroupExampleInput2" #availableQty>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> qty </label>
+          <input type="text" [(ngModel)]="ordersdetail.qty" name="customeddfrName" class="form-control form-control"
+                 #qty [(ngModel)]="ordersdetail.qty" name="qty">
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <!--uper text are bigin-->
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-2">
+        <button id="ButtonAddToCart" class="btn btn-success"
+                (click)="addCart(code.value,description.value,unitePrice.value,qty.value,discount1.value)">Add To cart
+        </button>
+      </div>
+    </div>
+    <div class="row" id="rowsp"></div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <table class="table table-hover">
+          <thead style="background-color: #71ab49db">
+          <tr id="tablehead">
+            <th scope="col">Item code</th>
+            <th scope="col">Description</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Total</th>
+
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let order of order">
+
+            <th scope="row">{{order.code}}</th>
+            <td>{{order.description}}</td>
+            <td>{{order.unitePrice}}</td>
+            <td>{{order.qty}}</td>
+            <td #totala>{{order.unitePrice*order.qty}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> Total {{total}} </label>
+          <div *ngFor="let order of order">
+            <!--{{addItemTotal(order.unitePrice,order.qty)}}-->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label> Discount </label>
+          <input type="text" class="form-control" #discount1 name="discount1" pattern="^(\d|,)*\.?\d*$" >
+          <div *ngIf="discount1.invalid && (discount1.dirty || discount1.touched)" class="alert alert-danger">
+            <div *ngIf="discount1.errors.pattern">  Invalid !!!</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-2">
+        <div class="form-group">
+            <label> Net Amount {{discount}}</label>
+
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> Paid Amount</label>
+          <input type="text" class="form-control" #paid (click)="balace(paid.value)">
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label> Balance </label>
+          <label>{{bal}}</label>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-8"></div>
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-secondary" (click)="orderSave()">Proceed</button>
+      </div>
+    </div>
+
+  </div>
+</form>

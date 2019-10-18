@@ -1,0 +1,174 @@
+<div class="col-md-12">
+  <div style=""><h3>CUSTOMER FORM :</h3></div>
+  <hr>
+  <br>
+  <div class="row">
+    <div class="col-md-1" id="spaceform1"></div>
+    <div class="col-md-10">
+      <form autocomplete="off" #usersForm="ngForm">
+
+
+        <div class="form-group">
+          <label> Name</label>
+          <input type="text" [(ngModel)]="customerdto.customerName" name="custName" class="form-control form-control"
+                 #custName="ngModel" required="required" minlength="3"
+                 pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
+
+          <div *ngIf="custName.invalid && (custName.dirty || custName.touched)"
+               class="alert alert-danger">
+
+
+            <div *ngIf="custName.errors.required">
+
+              Service is required !!! 😡😡😡.
+            </div>
+
+            <div *ngIf="custName.errors.pattern">
+
+              Invalid !!! 🤨🤨🤨🤨
+            </div>
+
+            <div *ngIf="custName.errors.minlength">
+              Need Your Name (Maximum 3 Charters.) 🤬🤬🤬
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label> Address </label>
+          <input type="text" [(ngModel)]="customerdto.address" name="address" class="form-control form-control"
+                 id="formGroupExampleInfput2" required="required" #address="ngModel" pattern="^[#.0-9a-zA-Z\s,-]+$">
+          <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+
+
+            <div *ngIf="address.errors.required">
+
+              Service is required !!! 😡😡😡.
+            </div>
+
+            <div *ngIf="address.errors.pattern">
+
+              Invalid !!!
+            </div>
+
+            <div *ngIf="address.errors.minlength">
+
+              Need Your Name (Maximum 9 Numbers.) 🤬🤬🤬
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label>Telephone</label>
+          <input type="text" placeholder=" " [(ngModel)]="customerdto.telephone" minlength="10" maxlength="12"
+                 name="telephone" class="form-control form-control"
+                 id="formGroupExampleIcnpfut2" #telephone="ngModel"
+                 pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$">
+
+          <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)"
+               class="alert alert-danger">
+
+
+            <div *ngIf="telephone.errors.required">
+
+              Service is required !!! 😡😡😡.
+            </div>
+
+            <div *ngIf="telephone.errors.pattern">
+
+              Invalid !!! 🤨🤨🤨🤨
+            </div>
+
+            <div *ngIf="telephone.errors.minlength">
+
+              Please enter a valid phone number. (07#######) OR (+94#########) 🤬🤬🤬
+            </div>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+    <div class="col-md-1 ">
+
+
+    </div>
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10" style="text-align: center">
+      <!--<button type="button" class="btn btn-primary btn-sm" id="addbtn" (click)="customerSave()">ADD</button>-->
+      <!--<button type="button" class="btn btn-primary btn-sm" id="addbftn" (click)="updateCustomer()">ADD</button>-->
+
+      <button *ngIf="!isEdit" (click)="onSubmit()" [disabled]="usersForm.invalid" type="submit"
+              class="btn btn-primary">Submit
+      </button>
+      <button *ngIf="isEdit" (click)="onSubmit()" [disabled]="usersForm.invalid" type="submit"
+              class="btn btn-primary">Update
+      </button>
+      <!--<button type="button" class="btn btn-secondary btn-sm" id="btnrefresh">REFRESH</button>-->
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <br>
+  <div class="row" id="table" style="height: 3px">
+    <hr style="height: 10px">
+  </div>
+  <!--table-->
+  <div class="row" style=" height: 20px"></div>
+  <div class="row">
+
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10">
+      <table class="table table-hover">
+        <thead>
+        <tr id="tablehead">
+          <th scope="col">Customer Id</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Customer Address</th>
+          <th scope="col">Contact</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody *ngFor=" let cus of customerList">
+        <tr>
+          <th scope="row">{{cus.cid}}</th>
+          <th scope="row">{{cus.customerName}}</th>
+          <th scope="row">{{cus.address}}</th>
+          <th scope="row">{{cus.telephone}}</th>
+          <th scope="row">
+
+            <!--<button type="button" class="btn btn-light"  id="btndelete" (click)="deleteCustomer(cus.cid)">-->
+            <!--<img src="../../assets/images/btnTrash.png" alt="">-->
+            <!--</button>-->
+            <img src="../../assets/images/btnTrash.png" style=" cursor: pointer" height="32px"
+                 (click)="deleteCustomer(cus.cid)">
+
+          </th>
+          <th>
+            <button [routerLink]="['/main/customer', cus.cid]" class="btn social-btn btn-secondary" type="button">
+
+              Edit
+            </button>
+
+          </th>
+
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-1"></div>
+
+  </div>
+
+</div>
